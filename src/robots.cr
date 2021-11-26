@@ -118,7 +118,7 @@ class Robots
   #
   private def match_path_glob(path, glob)
     if glob =~ /\$$/
-      end_marker = "(?:\?|$)"
+      end_marker = "(?:?|$)"
       glob = glob.gsub /\$$/, ""
     else
       end_marker = ""
@@ -128,13 +128,12 @@ class Robots
     path = normalize_percent_encoding(path)
 
     path =~ Regex.new("^" + reify(glob) + end_marker)
-
   rescue e
     false
   end
 
   # As a general rule, we want to ignore different representations of the
-  # same URL. Naively we could just unescape, or escape, everything, however
+  # same URL. Naively we could just decode, or encode, everything, however
   # the standard implies that a / is a HTTP path separator, while a %2F is an
   # encoded / that does not act as a path separator. Similar issues with ?, &
   # and =, though all other characters are fine. (While : also has a special
@@ -144,13 +143,13 @@ class Robots
   # explicitly upcase the few that we want to keep.
   #
   private def normalize_percent_encoding(path)
-    # First double-escape any characters we don't want to unescape
+    # First double-encode any characters we don't want to decode
     #                   &  /  =  ?
     path = path.gsub(/%(26|2F|3D|3F)/i) do |code|
       "%25#{code.upcase}"
     end
 
-    URI.unescape(path)
+    URI.decode(path)
   end
 
   # Convert the asterisks in a glob into (.*)s for regular expressions,

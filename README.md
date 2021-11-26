@@ -9,7 +9,7 @@ Simple robots.txt parsing for Crystal
    ```yaml
    dependencies:
      robots:
-       github: watzon/robots
+       github: grkek/robots
    ```
 
 2. Run `shards install`
@@ -49,15 +49,9 @@ reddit.allowed?("/r/SushiChain/search")
 # => false
 ```
 
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
-
 ## Contributing
 
-1. Fork it (<https://github.com /robots/fork>)
+1. Fork it (<https://github.com/grkek/robots/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -66,3 +60,4 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Chris Watson](https://github.com/watzon) - creator and maintainer
+- [Giorgi Kavrelishvili](https://github.com/grkek) - maintainer
