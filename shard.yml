@@ -5,6 +5,15 @@ authors:
   - Chris Watson <chris@watzon.me>
   - Giorgi Kavrelishvili <griogi.kavrelishvili@pm.me>
 
+dependencies:
+  crest:
+    github: mamantoha/crest
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.13.0
+
 crystal: ">= 0.36.0"
 
 license: MIT
